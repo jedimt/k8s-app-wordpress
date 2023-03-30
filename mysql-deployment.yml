@@ -24,7 +24,10 @@ spec:
             - name: MYSQL_DATABASE
               value: wordpress
             - name: MYSQL_ROOT_PASSWORD
-              value: ComplexP@ssw0rd
+              valueFrom:
+                secretKeyRef:
+                  name: mysql-pass
+                  key: password
           resources:
             requests:
               cpu: "1000m"

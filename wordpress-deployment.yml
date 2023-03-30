@@ -31,7 +31,10 @@ spec:
             - name: WORDPRESS_DB_USER
               value: root
             - name: WORDPRESS_DB_PASSWORD
-              value: ComplexP@ssw0rd
+              valueFrom:
+                secretKeyRef:
+                  name: mysql-pass
+                  key: password
           resources:  # The resources key values are optional - included for demonstration purposes
             requests:
               cpu: "500m"
