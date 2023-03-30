@@ -4,30 +4,27 @@ kind: Deployment
 metadata:
   name: wordpress-mysql
   labels:
-    app: wordpress
+    app: wordpress-mysql
   namespace: wordpress
 spec:
   selector:
     matchLabels:
-      app: wordpress
-      tier: mysql
+      app: wordpress-mysql
   strategy:
     type: Recreate
   template:
     metadata:
       labels:
-        app: wordpress
-        tier: mysql
+        app: wordpress-mysql
     spec:
       containers:
-        - image: "mysql:5.6"
+        - image: mysql:oracle
           name: mysql
           env:
+            - name: MYSQL_DATABASE
+              value: wordpress
             - name: MYSQL_ROOT_PASSWORD
-              valueFrom:
-                secretKeyRef:
-                  name: mysql-pass
-                  key: password
+              value: ComplexP@ssw0rd
           resources:
             requests:
               cpu: "1000m"
