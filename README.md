@@ -1,0 +1,1 @@
+This is a sample WordPress app stack for demo purposes.
