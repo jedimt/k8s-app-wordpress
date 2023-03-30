@@ -3,9 +3,8 @@ kind: Kustomization
 resources:
   - namespace.yml
   - wordpress-service.yml
-  - wordpress-deployment.yml
-  - wordpress-pvc.yml
-  - mysql-secret.yml
   - mysql-service.yml
-  - mysql-deployment.yml
   - mysql-pvc.yml
+  - mysql-deployment.yml
+  - wordpress-pvc.yml
+  - wordpress-deployment.yml
